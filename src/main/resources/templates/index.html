@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>UwU</title>
+</head>
+<body>
+	<header th:replace="fragments/templates :: header"></header>
+	<div th:if="${persons == null or persons.isEmpty()}">
+		<p>The list is empty</p>
+	</div>
+
+	<a th:href="@{/person/add}">Add one</a>
+	<div th:if="${persons!=null and !persons.isEmpty()}">
+		<table border="1">
+			<tr>
+				<th>Name</th>
+				<th>LastName</th>
+				<th>Email</th>
+				<th>Number</th>
+				<th>Modify</th>
+				<th>Delete</th>
+			</tr>
+			<tr th:each="person : ${persons}">
+				<td th:text="${person.name}"></td>
+				<td th:text="${person.lastname}"></td>
+				<td th:text="${person.email}"></td>
+				<td th:text="${person.number}"></td>
+				<th><a th:href="@{/person/modify/} + ${person.id}" th:text="Modify"></a></th>
+				<th><a th:href="@{/person/delete/} + ${person.id}" th:text="Delete"></a></th>
+			</tr>
+
+		</table>
+	</div>
+	
+	<footer th:replace="fragments/templates :: footer"></footer>
+</body>
+</html>

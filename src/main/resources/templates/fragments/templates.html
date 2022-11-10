@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8">
+<title>Templates</title>
+</head>
+<body>
+	<header th:fragment="header">
+		<h1>[[#{templates.header_title}]]</h1>
+	</header>
+
+
+	<footer th:fragment="footer">
+		<p>[[#{templates.footer_p}]] <a href="https://github.com/Juli-CVidal" target="_blank">Julián Vidal</a></p>
+	</footer>
+</body>
+</html>
