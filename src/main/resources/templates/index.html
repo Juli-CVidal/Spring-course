@@ -2,24 +2,24 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>UwU</title>
+<title>Spring Course</title>
 </head>
 <body>
 	<header th:replace="fragments/templates :: header"></header>
 	<div th:if="${persons == null or persons.isEmpty()}">
-		<p>The list is empty</p>
+		<p>[[#{table.empty}]]</p>
 	</div>
 
-	<a th:href="@{/person/add}">Add one</a>
+	<a th:href="@{/person/add}">[[#{table.add_one}]]</a>
 	<div th:if="${persons!=null and !persons.isEmpty()}">
 		<table border="1">
 			<tr>
-				<th>Name</th>
-				<th>LastName</th>
-				<th>Email</th>
-				<th>Number</th>
-				<th>Modify</th>
-				<th>Delete</th>
+				<th>[[#{table.field_name}]]</th>
+				<th>[[#{table.field_lastname}]]</th>
+				<th>[[#{table.field_email}]]</th>
+				<th>[[#{table.field_number}]]</th>
+				<th>[[#{table.modify_entry}]]</th>
+				<th>[[#{table.delete_entry}]]</th>
 			</tr>
 			<tr th:each="person : ${persons}">
 				<td th:text="${person.name}"></td>

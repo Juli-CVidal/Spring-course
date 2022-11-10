@@ -19,14 +19,14 @@ public class Person {
 	@GenericGenerator(name = "system-uuid", strategy = "uuid")
 	private String id;
 
-	@NotEmpty(message = "A name is required")
+	@NotEmpty
 	private String name;
 
-	@NotEmpty(message = "A lastname is required")
+	@NotEmpty
 	private String lastname;
 
-	@NotEmpty(message = "An email is required")
-	@Email(message = "Please enter a valid email")
+	@Email
+	@NotEmpty
 	private String email;
 	private String number;
 }

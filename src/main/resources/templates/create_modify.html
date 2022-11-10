@@ -11,22 +11,22 @@
 	<form th:action="@{/person/save}" method="post" th:object="${person}">
 		<input type="hidden" name="id" th:field="*{id}"/>
 		
-		<label for="name">[[#{form.label_name}]]</label>
+		<label for="name">[[#{table.field_name}]]:</label>
 		<input type="text" name="name" th:field="*{name}"/>
 		<span th:if="${#fields.hasErrors('name')}" th:errors=*{name}></span>
 		<br>
 	
-		<label for="lastname">[[#{form.label_lastname}]]</label>
+		<label for="lastname">[[#{table.field_lastname}]]:</label>
 		<input type="text" name="lastname" th:field="*{lastname}"/>
 		<span th:if="${#fields.hasErrors('lastname')}" th:errors=*{lastname}></span>
 		<br>
 	
-		<label for="email">[[#{form.label_email}]]</label>
+		<label for="email">[[#{table.field_email}]]:</label>
 		<input type="text" name="email" th:field="*{email}"/>
 		<span th:if="${#fields.hasErrors('email')}" th:errors=*{email}></span>
 	
 		<br>
-		<label for="number">[[#{form.label_number}]]</label>
+		<label for="number">[[#{table.field_number}]]:</label>
 		<input type="number" name="number" th:field="*{number}"/>
 		
 		<input type="submit">
