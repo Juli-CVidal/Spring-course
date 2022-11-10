@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Templates</title>
 </head>
 <body>
@@ -9,9 +9,14 @@
 		<h1>[[#{templates.header_title}]]</h1>
 	</header>
 
-
 	<footer th:fragment="footer">
-		<p>[[#{templates.footer_p}]] <a href="https://github.com/Juli-CVidal" target="_blank">Julián Vidal</a></p>
+		<div>
+			<br /> <a th:href="@{/(lang=es)}">ES</a>|<a th:href="@{/(lang=en)}">EN</a>
+		</div>
+		<span>
+			[[#{templates.footer_p}]] <a href="https://github.com/Juli-CVidal"
+				target="_blank">Julián Vidal</a>
+		</span>
 	</footer>
 </body>
 </html>
