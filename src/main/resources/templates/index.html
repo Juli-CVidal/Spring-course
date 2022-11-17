@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Spring Course</title>
@@ -10,7 +11,7 @@
 		<p>[[#{table.empty}]]</p>
 	</div>
 
-	<a th:href="@{/person/add}">[[#{table.add_one}]]</a>
+	<a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/person/add}">[[#{table.add_one}]]</a>
 	<div th:if="${persons!=null and !persons.isEmpty()}">
 		<table border="1">
 			<tr>
@@ -18,16 +19,16 @@
 				<th>[[#{table.field_lastname}]]</th>
 				<th>[[#{table.field_email}]]</th>
 				<th>[[#{table.field_number}]]</th>
-				<th>[[#{table.modify_entry}]]</th>
-				<th>[[#{table.delete_entry}]]</th>
+				<th sec:authorize="hasRole('ROLE_ADMIN')">[[#{table.modify_entry}]]</th>
+				<th sec:authorize="hasRole('ROLE_ADMIN')">[[#{table.delete_entry}]]</th>
 			</tr>
 			<tr th:each="person : ${persons}">
 				<td th:text="${person.name}"></td>
 				<td th:text="${person.lastname}"></td>
 				<td th:text="${person.email}"></td>
 				<td th:text="${person.number}"></td>
-				<th><a th:href="@{/person/modify/} + ${person.id}" th:text="Modify"></a></th>
-				<th><a th:href="@{/person/delete/} + ${person.id}" th:text="Delete"></a></th>
+				<th sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/person/modify/} + ${person.id}" th:text="Modify"></a></th>
+				<th sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/person/delete/} + ${person.id}" th:text="Delete"></a></th>
 			</tr>
 
 		</table>

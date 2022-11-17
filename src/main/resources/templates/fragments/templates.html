@@ -11,12 +11,15 @@
 
 	<footer th:fragment="footer">
 		<div>
-			<br /> <a th:href="@{/(lang=es)}">ES</a>|<a th:href="@{/(lang=en)}">EN</a>
+			<br /> <a th:href="@{?(lang=es)}">ES</a>|<a th:href="@{?(lang=en)}">EN</a>
 		</div>
-		<span>
-			[[#{templates.footer_p}]] <a href="https://github.com/Juli-CVidal"
-				target="_blank">Julián Vidal</a>
+		<span> [[#{templates.footer_p}]] <a
+			href="https://github.com/Juli-CVidal" target="_blank">Julián
+				Vidal</a>
 		</span>
+		<form method="POST" th:action="@{/logout}">
+			<a href="#" onclick="this.parentNode.submit();">Logout</a>
+		</form>
 	</footer>
 </body>
 </html>
